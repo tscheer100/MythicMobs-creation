@@ -1,0 +1,275 @@
+# WAVES
+
+Wave1:
+  Cooldown: 4
+  Conditions:
+  - stance StanceWave1
+  Skills:
+  - speak{offset=0.6f;radius=30;maxlinelength=22;lineprefix="&5";message=" &7How &ldare&r&7 you wake the Giant!";chatprefix=<caster.name>&f<&co>;duration=200} @self
+  - delay 60
+  - jump{velocity=0.65}
+  - delay 20
+  - effect:particles{p=explosion_large;a=30;hs=2} @self
+  - sound{s=entity.generic.explode} @self
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=3;d=400;mr=400} @Target
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=-3;d=400;mr=400} @Target
+  - setstance{stance=StanceWave2} @Self    
+
+Wave2:
+  Cooldown: 4
+  Conditions:
+  - stance StanceWave2
+  Skills:
+  - delay 20
+  - jump{velocity=0.65}
+  - delay 20
+  - effect:particles{p=explosion_large;a=30;hs=2} @self
+  - sound{s=entity.generic.explode} @self
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=3;d=400;mr=400} @Target
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=-3;d=400};mr=400 @Target
+  - setstance{stance=StanceWave3} @Self
+
+Wave3:
+  Cooldown: 4
+  Conditions:
+  - stance StanceWave3
+  Skills:
+  - delay 20
+  - jump{velocity=0.65}
+  - delay 20
+  - effect:particles{p=explosion_large;a=30;hs=2} @self
+  - sound{s=entity.generic.explode} @self
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=3;d=400;mr=400} @Target
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=-3;d=400;mr=400} @Target
+  - setstance{stance=StanceWave4} @Self  
+  
+Wave4:
+  Cooldown: 4
+  Conditions:
+  - stance StanceWave4
+  Skills:
+  - delay 20
+  - jump{velocity=0.65}
+  - delay 20
+  - effect:particles{p=explosion_large;a=30;hs=2} @self
+  - sound{s=entity.generic.explode} @self
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=3;d=400;mr=400} @Target
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=-3;d=400;mr=400} @Target
+  - setstance{stance=StanceWave5} @Self 
+  
+Wave5:
+  Cooldown: 4
+  Conditions:
+  - stance StanceWave5
+  Skills:
+  - delay 20
+  - jump{velocity=0.65}
+  - delay 20
+  - effect:particles{p=explosion_large;a=30;hs=2} @self
+  - sound{s=entity.generic.explode} @self
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=3;d=400;mr=400} @Target
+  - projectile{onTick=WaveTick;onHit=WaveHit;onEnd=WaveEnd;i=1;v=6;mr=20;hs=true;sE=false;sso=-3;d=400;mr=400} @Target
+  - setstance{stance=MeteorStance1} @Self 
+
+
+WaveTick:
+  Skills:
+  - effect:particles{particle=reddust;color=#000000;a=30;hs=0.2;vs=0.2} @origin
+  - effect:particles{particle=reddust;color=#DA70D6;a=20;hs=0.1;vs=0.1} @origin
+WaveHit:
+  Skills:
+  - damage{a=8}
+  - effect:particles{particle=explosion_huge} @origin
+WaveEnd:
+  Skills:
+  - effect:particles{particle=snow_shovel;a=20;hs=0.3;vs=0.3} @origin
+
+# METEOR
+# METEOR
+
+Meteor1:
+  Cooldown: 4
+  Conditions:
+  - stance MeteorStance1
+  Skills:
+  - speak{offset=0.6f;radius=40;maxlinelength=22;lineprefix="&5";message=" Meteor1 + dialogue";chatprefix=<caster.name>&f<&co>;duration=10} @self
+  - delay 60
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - setstance{stance=MeteorStance2} @Self
+
+Meteor2:
+  Cooldown: 4
+  Conditions:
+  - stance MeteorStance2
+  Skills:
+  - delay 20
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - setstance{stance=MeteorStance3} @Self 
+
+Meteor3:
+  Cooldown: 4
+  Conditions:
+  - stance MeteorStance3
+  Skills:
+  - delay 20
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - setstance{stance=MeteorStance4} @Self 
+
+Meteor4:
+  Cooldown: 4
+  Conditions:
+  - stance MeteorStance4
+  Skills:
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - setstance{stance=MeteorStance5} @Self 
+
+Meteor5:
+  Cooldown: 4
+  Conditions:
+  - stance MeteorStance5
+  Skills:
+  - delay 20
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - delay 5
+  - sound{s=entity.firework_rocket.launch} @origin
+  - effect:particles{particle=reddust;color=#FF8C00;amount=200;hS=1;vS=0.3;hR=4;vR=1;speed=5} @PIR{r=40}
+  - delay 5
+  - projectile{onTick=MeteorTick;onHit=MeteorHit;onEnd=MeteorEnd;i=1;v=6;mr=20;sE=false;g=1;type=meteor;hfs=10} @PIR{r=40}
+  - setstance{stance=Leap1} @Self
+MeteorTick:
+  Skills:
+  - effect:particlering{particle=reddust;c=#DA70D6;radius=1;points=32;amount=10;hS=1;vS=0;y=10} @target
+  - effect:particles{particle=reddust;color=#000000;a=30;hs=0.2;vs=0.2} @origin
+  - effect:particlering{particle=portal;radius=1;points=32;amount=10;hS=1;vS=0;y=10} @target   
+  - effect:particles{particle=reddust;color=#DA70D6;a=20;hs=0.1;vs=0.1} @origin
+MeteorHit:
+  Skills:
+  - damage{a=8}
+  - sound{s=entity.generic.explode} @self
+  - effect:particles{particle=explosion_huge} @origin
+MeteorEnd:
+  Skills:
+  - effect:particles{particle=snow_shovel;a=20;hs=0.3;vs=0.3} @origin  
+
+SeismicLeap1:
+  Conditions: 
+  - stance Leap1
+  Skills:
+  - speak{offset=0.6f;radius=40;maxlinelength=22;lineprefix="&5";message=" Leap1";chatprefix=<caster.name>&f<&co>;duration=10} @self 
+  - jump{v=1.5} @self
+  - delay 35
+  - effect:particles{particle=block_crack;m=dirt;amount=400;hS=6;vS=1} @self
+  - damage{a=8} @PIR{r=14}
+  - setstance{stance=Leap2} @Self
+  
+SeismicLeap2:
+  Conditions: 
+  - stance Leap2
+  Skills:
+  - jump{v=1.5} @self0
+  - delay 35
+  - effect:particles{particle=block_crack;m=dirt;amount=400;hS=6;vS=1} @self
+  - damage{a=8} @PIR{r=14}
+  - setstance{stance=Leap3} @Self
+
+SeismicLeap3:
+  Conditions: 
+  - stance Leap3
+  Skills:
+  - jump{v=1.5} @self
+  - delay 35
+  - effect:particles{particle=block_crack;m=dirt;amount=400;hS=6;vS=1} @self
+  - damage{a=8} @PIR{r=14}
+  - setstance{stance=Leap4} @Self
+  
+SeismicLeap4:
+  Conditions: 
+  - stance Leap4
+  Skills:
+  - jump{v=1.5} @self
+  - delay 35
+  - effect:particles{particle=block_crack;m=dirt;amount=400;hS=6;vS=1} @self
+  - damage{a=8} @PIR{r=14}
+  - setstance{stance=Leap5} @Self
+
+SeismicLeap5:
+  Conditions: 
+  - stance Leap5
+  Skills:
+  - jump{v=1.5} @self
+  - delay 35
+  - effect:particles{particle=block_crack;m=dirt;amount=400;hS=6;vS=1} @self
+  - damage{a=8} @PIR{r=14}
+  - setstance{stance=StanceWave1} @Self
+  
+testAura:
+  Skills:
+  - aura{onStart=auraStart;onTick=auraTick;onEnd=auraEnd;i=1;duration=100}
+auraStart:
+  Skills:
+  - sound{s=entity.ender_dragon.growl}
+  
+# auraTick:
+ # Skills:
+# auraEnd:

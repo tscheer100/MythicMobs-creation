@@ -1,0 +1,52 @@
+end_giant:
+  Type: HUSK
+  Display: '&a&3End Giant'
+  Health: 50
+  Damage: 1
+  Options:
+    MovementSpeed: 0.2
+  Skills:
+  - skill{s=Wave1} @Self ~onTimer:60
+  - skill{s=Wave2} @Self ~onTimer:60
+  - skill{s=Wave3} @Self ~onTimer:60
+  - skill{s=Wave4} @Self ~onTimer:60
+  - skill{s=Wave5} @Self ~onTimer:60
+  - skill{s=Meteor1} @Self ~onTimer:60 
+  - skill{s=Meteor2} @Self ~onTimer:60 
+  - skill{s=Meteor3} @Self ~onTimer:60 
+  - skill{s=Meteor4} @Self ~onTimer:60 
+  - skill{s=Meteor5} @Self ~onTimer:60 
+  - skill{s=SeismicLeap1} @self ~onTimer:60
+  - skill{s=SeismicLeap2} @self ~onTimer:60
+  - skill{s=SeismicLeap3} @self ~onTimer:60
+  - skill{s=SeismicLeap4} @self ~onTimer:60
+  - skill{s=SeismicLeap5} @self ~onTimer:60
+  - skill{s=testAura} @self ~onTimer:60
+  #######################
+  # Black Effect
+  - effect:particleorbital{p=reddust;color=#000000;a=10;points=64;an=1;hs=0;vs=0;s=0;ticks=130;in=1;r=3;yOffset=0.7;oy=11} @self ~onTimer:10
+  # Purple Effect
+  - effect:particleorbital{p=reddust;color=#DA70D6;a=10;points=64;an=1;hs=0;vs=0;s=0;ticks=130;in=1;r=3;yOffset=0.7;oy=11} @self ~onTimer:10
+  - setstance{s=StanceWave1} @self ~onSpawn
+  - dropitem{i=FeatherBoots} @self ~onDeath 0.1
+  - dropitem{i=goldapple} @self ~onDeath 0.5
+  - dropitem{i=bread) @self ~onDeath 1.0
+  Equipment:
+  - iron_helmet HEAD
+  - FeatherBoots FEET
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 movetowardstarget
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  DamageModifiers:
+  - FALL 0.0
+  BossBar:
+    Enabled: true
+    Title: 'End Giant'
+    Range: 40
+  Disguise:
+    Type: giant
+    ModifyBoundingBox: false

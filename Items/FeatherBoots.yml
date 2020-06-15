@@ -1,0 +1,5 @@
+FeatherBoots:
+  Id: diamond_boots
+  Display: '&aFeather Boots'
+  Enchantments:
+  - PROTECTION_ENVIRONMENTAL:2
